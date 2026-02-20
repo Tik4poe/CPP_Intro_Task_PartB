@@ -24,7 +24,7 @@
     <ProjectGuid>{79970853-b9d0-4c1f-a68a-9841b17d77e9}</ProjectGuid>
     <RootNamespace>BubbleSort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>02_BubbleSort</ProjectName>
+    <ProjectName>02_BubbleSort_BinarySearch</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -124,7 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BubbleSort.cpp" />
+    <ClCompile Include="BubbleSort_BinarySearch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
