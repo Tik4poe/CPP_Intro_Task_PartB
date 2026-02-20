@@ -26,7 +26,7 @@ void BubbleSort(int array[], int size)
 			if (array[j] > array[j + 1])// compare current to adjacent(left)
 			{
 				// if current larger than swap
-				array[j] = array[j + 1];
+				array[j] = array[j + 1]; 
 				array[j + 1] = temp;
 			}
 		}
