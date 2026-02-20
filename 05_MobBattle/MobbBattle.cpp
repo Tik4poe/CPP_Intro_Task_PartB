@@ -9,6 +9,13 @@ struct mob
 	int health = 0;
 	int damage = 0;
 
+	mob(string nme, int hlth, int dmg)
+	{
+		name == nme;
+		health == hlth;
+		damage == dmg;
+	}
+
 	int Attack(mob target)
 	{
 		target.health -= damage;
