@@ -4,21 +4,45 @@
 
 using namespace std;
 
-void BubbleSort(vector<int> array);
-int BinarySearch(vector<int> array, int key);
+void BubbleSort(vector<int>& array);
+int BinarySearch(vector<int> &array, int key);
 
 vector<int> array01 = { 67,13,3,89,43,2,19,71,5,61,97,7,37,31,17,11,83,53,23,29 };
 
 int main()
 {
+	int counter = 0;
+	int userInt = 0;
 	BubbleSort(array01);
 
-	BinarySearch(array01, 83);
+	assert(BinarySearch(array01, 11) == 4);
+	assert(BinarySearch(array01, 23) == 8);
+	assert(BinarySearch(array01, 97) == 19);
+	assert(BinarySearch(array01, 88) == -1);
+
+	while (counter <= 5)
+	{
+		cout << "what number would you like to search for: ";
+		cin >> userInt; cout << endl;
+
+		int result = BinarySearch(array01, userInt);
+
+		if (result != -1)
+		{
+			cout << "your number " << userInt << "is at index: " << result << endl;
+		}
+		else
+		{
+			cout << "your number was not found" << endl;
+		}
+
+		counter++;
+	}
 
 	cout << "|========== END ===========|" << endl;
 }
 
-void BubbleSort(vector<int> array)
+void BubbleSort(vector<int>& array)
 {
 	pair<int, int> p;// create pair once
 
@@ -52,28 +76,30 @@ void BubbleSort(vector<int> array)
 	}
 }
 
-int BinarySearch(vector<int> array, int target)
+
+// comment that makes sense
+int BinarySearch(vector<int> &array, int target)
 {
-	int low = 0;
-	int high = array.size() - 1;
+	int low = 0;// left side of array
+	int high = array.size() - 1;// right side of array
 
 	while (low <= high)
 	{
-		int mid = low + (high - low) / 2;
+		int mid = low + (high - low) / 2;// what it's comparing to
 		
-		if (array[mid] == target)
+		if (array[mid] == target)// found target then return its index
 		{
 			return mid;
 		}
 
-		if (array[mid] < target)
+		if (array[mid] < target)// if target is higher raise low
 		{
 			low = mid + 1;
 		}
-		else
+		else// else lower high
 		{
 			high = mid - 1;
 		}
 	}
-	return -1;
+	return -1;// return this if not found
 }
