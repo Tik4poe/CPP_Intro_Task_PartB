@@ -22,6 +22,7 @@ int main()
 	assert(LinearSearch(array00, 20, 88) == -1);
 }
 
+// compare target against each element in the array and return if found if not return -1
 int LinearSearch(int array[], int size, int target)
 {
 	for (int i = 0; i < size; i++)
