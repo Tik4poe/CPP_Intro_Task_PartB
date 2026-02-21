@@ -22,21 +22,21 @@ int main()
 
 	while (counter <= 5)
 	{
-		cout << "what number would you like to search for: ";
-		cin >> userInt; cout << endl;
+		cout << "what number would you like to search for: ";// ask for number
+		cin >> userInt; cout << endl;// contain it in userInt
 
-		int result = BinarySearch(array01, userInt);
+		int result = BinarySearch(array01, userInt);// send to be search for in the sorted collection
 
 		if (result != -1)
 		{
-			cout << "your number " << userInt << "is at index: " << result << endl;
+			cout << "your number " << userInt << "is at index: " << result << endl;// found it inform the user
 		}
 		else
 		{
-			cout << "your number was not found" << endl;
+			cout << "your number was not found" << endl;// not found inform user
 		}
 
-		counter++;
+		counter++;// ensures while loop ends
 	}
 
 	cout << "|========== END ===========|" << endl;
