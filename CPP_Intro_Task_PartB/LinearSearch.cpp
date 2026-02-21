@@ -9,6 +9,7 @@ int array00[] = { 67,13,3,89,43,2,19,71,5,61,97,7,37,31,17,11,83,53,23,29 };
 
 int main()
 {
+	//Testing
 	cout << "Target is: 3 |" << "| Target is at index: " << LinearSearch(array00, 20, 3) << endl;
 	assert(LinearSearch(array00,20,3) == 2);
 
