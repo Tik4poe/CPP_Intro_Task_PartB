@@ -5,10 +5,12 @@ using namespace std;
 
 struct mob
 {
+	// stats
 	string name = "";
 	int health = 0;
 	int damage = 0;
 
+	// constructor
 	mob(string nme, int hlth, int dmg)
 	{
 		name = nme;
@@ -16,6 +18,7 @@ struct mob
 		damage = dmg;
 	}
 
+	// attack function
 	void Attack(mob &target)
 	{
 		target.health -= damage;
@@ -26,48 +29,52 @@ struct mob
 	}
 };
 
-void Battle(mob* a, mob* b);
+void Battle(mob* a, mob* b);// declaration
 
-int rng = rand() % 2;
+int rng = rand() % 2;// simple randomizer
 
 int main()
 {
 	bool isBattling = true;
 
-	int round = 1;
+	// round variables
+	int roundCurrent = 1;
 	int finalRound = 50;
 	
+	// the mods to fight
 	mob kuri = { "Liara", 250, 10 };
-
 	mob ngeru = {"Millie", 300, 12};
 
-	while (round < finalRound && isBattling)
+	// battle loop
+	while (roundCurrent < finalRound && isBattling)
 	{
-		cout << "Round: " << round << endl;
+		// outputs the current round, calls Battle, increments the current round
+		cout << "round: " << roundCurrent << endl;
 		Battle(&kuri,&ngeru);
-		round++;
-		if (kuri.health <= 0 || ngeru.health <= 0)
+		roundCurrent++;
+		// checks is some has won the Battle
+		if (kuri.health <= 0 || ngeru.health <= 0)// if wither fighter has reached 0 health
 		{
 			if (ngeru.health > kuri.health)
 			{
 				cout << "\n|==================================================|\n";
-				cout << ngeru.name << " has won" << " at round " << round << endl;
+				cout << ngeru.name << " has won" << " at round " << roundCurrent << endl;
 				isBattling = false;
 			}
 			else if (kuri.health > ngeru.health)
 			{
 				cout << "\n|==================================================|\n";
-				cout << kuri.name << " has won" << " at round " << round << endl;
+				cout << kuri.name << " has won" << " at round " << roundCurrent << endl;
 				isBattling = false;
 			}
 			else
 			{
 				cout << "\n|==================================================|\n";
-				cout << ngeru.name << " and " << kuri.name << " are even" << " at round " << round << endl;
+				cout << ngeru.name << " and " << kuri.name << " are even" << " at round " << roundCurrent << endl;
 				isBattling = false;
 			}
 		}
-		else if (round == finalRound)
+		else if (roundCurrent == finalRound)// if fighters are still alive at the end of the round who ever has the most health wins
 		{
 			if (ngeru.health > kuri.health)
 			{
@@ -82,7 +89,7 @@ int main()
 			else
 			{
 				cout << "\n|==================================================|\n";
-				cout << ngeru.name << " and " << kuri.name << " have drew in the final round" << round << endl;
+				cout << ngeru.name << " and " << kuri.name << " have drew in the final round" << roundCurrent << endl;
 			}
 		}
 	}
@@ -93,7 +100,7 @@ int main()
 
 void Battle(mob* a, mob* b)
 {
-	if (rng == 1)
+	if (rng == 1)// if rnd is 1 mob a attack if not b
 	{
 		a->Attack(*b);
 	}
